@@ -48,6 +48,9 @@ namespace RentC.WebUI
             // container.RegisterType<IProductRepository, ProductRepository>();
             container.RegisterType<IRepository<Product>, SQLRepository<Product>>();
             container.RegisterType<IRepository<ProductCategory>, SQLRepository<ProductCategory>>();
+            container.RegisterType<IRepository<Client>, SQLRepository<Client>>();
+            container.RegisterType<IRepository<Reservation>, SQLRepository<Reservation>>();
+
         }
     }
 }

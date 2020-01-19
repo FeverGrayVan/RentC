@@ -8,6 +8,8 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using RentC.Core.Contracts;
+using RentC.Core.Models;
 using RentC.WebUI.Models;
 
 namespace RentC.WebUI.Controllers
@@ -17,15 +19,12 @@ namespace RentC.WebUI.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private IRepository<Client> clientRepository;
 
-        public AccountController()
+      
+        public AccountController(IRepository<Client> clientRepository)
         {
-        }
-
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
-        {
-            UserManager = userManager;
-            SignInManager = signInManager;
+            this.clientRepository = clientRepository;
         }
 
         public ApplicationSignInManager SignInManager
@@ -155,6 +154,18 @@ namespace RentC.WebUI.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    Client client = new Client() {
+                        Email = model.Email,
+                        ClientFirstName = model.ClientFirstName,
+                        ClientLastName = model.ClientLastName,
+                        BirthDate = model.BirthDate,
+                        ZipCode = model.ZipCode,
+
+                    };
+
+                    clientRepository.Insert(client);
+                    clientRepository.Commit();
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // Дополнительные сведения о включении подтверждения учетной записи и сброса пароля см. на странице https://go.microsoft.com/fwlink/?LinkID=320771.

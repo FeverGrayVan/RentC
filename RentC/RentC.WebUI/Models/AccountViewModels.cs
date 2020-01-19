@@ -79,6 +79,14 @@ namespace RentC.WebUI.Models
         [Display(Name = "Подтверждение пароля")]
         [Compare("Password", ErrorMessage = "Пароль и его подтверждение не совпадают.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        public string ClientFirstName { get; set; }
+        [Required]
+        public string ClientLastName { get; set; }
+        [Required]
+        public string BirthDate { get; set; }
+        public int ZipCode { get; set; }
     }
 
     public class ResetPasswordViewModel
