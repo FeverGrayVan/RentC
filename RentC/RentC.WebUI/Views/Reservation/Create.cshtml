@@ -1,5 +1,4 @@
-﻿@model RentC.Core.Models.Reservation
-
+﻿@model RentC.Core.ViewModels.ReservationViewModel
 @{
     ViewBag.Title = "Create";
 }
@@ -14,68 +13,62 @@
     <div class="form-horizontal">
         <h4>Reservation</h4>
         <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+
         <div class="form-group">
-            @Html.LabelFor(model => model.CreatedAt, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Reservation.CarID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CreatedAt, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CreatedAt, "", new { @class = "text-danger" })
+                @*Html.EditorFor(model => model.Reservation.CarID, new { htmlAttributes = new { @class = "form-control" } }) *@
+                @Html.DropDownListFor(model => model.Reservation.CarID, new SelectList(Model.Cars, "Plate", "Plate"), new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Reservation.CarID, "", new { @class = "text-danger" }) 
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CarID, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Reservation.CustomerID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CarID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CarID, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.Reservation.CustomerID, new SelectList(Model.Clients, "ClientLastName", "ClientLastName"), new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Reservation.CustomerID, "Choose client", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CustomerID, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Reservation.ReservStatsID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CustomerID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CustomerID, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Reservation.ReservStatsID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Reservation.ReservStatsID, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ReservStatsID, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Reservation.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ReservStatsID, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ReservStatsID, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Reservation.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Reservation.StartDate, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Reservation.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Reservation.EndDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Reservation.EndDate, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Reservation.Location, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Reservation.Location, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Reservation.Location, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Reservation.CouponCode, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CouponCode, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CouponCode, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CouponCode, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Reservation.CouponCode, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Reservation.CouponCode, "", new { @class = "text-danger" })
             </div>
         </div>
 

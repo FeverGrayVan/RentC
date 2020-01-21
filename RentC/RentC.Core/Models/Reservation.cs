@@ -8,8 +8,8 @@ namespace RentC.Core.Models
 {
     public class Reservation : BaseEntity
     {
-        public int CarID { get; set; }
-        public int CustomerID { get; set; }
+        public string CarID { get; set; }
+        public string CustomerID { get; set; }
         public float ReservStatsID { get; set; }
         public string StartDate { get; set; }
         public string EndDate { get; set; }

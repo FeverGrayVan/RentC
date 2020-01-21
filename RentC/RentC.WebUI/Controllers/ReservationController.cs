@@ -1,5 +1,6 @@
 ﻿using RentC.Core.Contracts;
 using RentC.Core.Models;
+using RentC.Core.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,14 @@ namespace RentC.WebUI.Controllers
     public class ReservationController : Controller
     {
         IRepository<Reservation> context;
+        IRepository<Car> cars;
+        IRepository<Client> clients;
 
-        public ReservationController(IRepository<Reservation> context)
+        public ReservationController(IRepository<Reservation> context, IRepository<Car> cars, IRepository<Client> clients)
         {
             this.context = context;
+            this.cars = cars;
+            this.clients = clients;
         }
 
         // GET: ProductManager
@@ -24,11 +29,22 @@ namespace RentC.WebUI.Controllers
             return View(reservations);
         }
 
+        //public ActionResult Create()
+        //{
+        //    Reservation reservations = new Reservation();
+        //    return View(reservations);
+        //}
+
         public ActionResult Create()
         {
-            Reservation reservations = new Reservation();
-            return View(reservations);
+            ReservationViewModel viewModel = new ReservationViewModel();
+
+            viewModel.Reservation = new Reservation();
+            viewModel.Cars = cars.Collection();
+            viewModel.Clients = clients.Collection();
+            return View(viewModel);
         }
+        
         [HttpPost]
         public ActionResult Create(Reservation reservation)
         {
