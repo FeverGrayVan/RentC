@@ -103,6 +103,34 @@
     <Compile Include="Migrations\202001202214215_Cars4.designer.cs">
       <DependentUpon>202001202214215_Cars4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202001221258006_Clients1.cs" />
+    <Compile Include="Migrations\202001221258006_Clients1.designer.cs">
+      <DependentUpon>202001221258006_Clients1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001221308200_Clients2.cs" />
+    <Compile Include="Migrations\202001221308200_Clients2.designer.cs">
+      <DependentUpon>202001221308200_Clients2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001221431131_Cars5.cs" />
+    <Compile Include="Migrations\202001221431131_Cars5.designer.cs">
+      <DependentUpon>202001221431131_Cars5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001221514221_Date1.cs" />
+    <Compile Include="Migrations\202001221514221_Date1.designer.cs">
+      <DependentUpon>202001221514221_Date1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001221542073_Reservations1.cs" />
+    <Compile Include="Migrations\202001221542073_Reservations1.designer.cs">
+      <DependentUpon>202001221542073_Reservations1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001221901287_Expiration1.cs" />
+    <Compile Include="Migrations\202001221901287_Expiration1.designer.cs">
+      <DependentUpon>202001221901287_Expiration1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001221924522_NameSpaces1.cs" />
+    <Compile Include="Migrations\202001221924522_NameSpaces1.designer.cs">
+      <DependentUpon>202001221924522_NameSpaces1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLRepository.cs" />
@@ -135,6 +163,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202001202214215_Cars4.resx">
       <DependentUpon>202001202214215_Cars4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001221258006_Clients1.resx">
+      <DependentUpon>202001221258006_Clients1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001221308200_Clients2.resx">
+      <DependentUpon>202001221308200_Clients2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001221431131_Cars5.resx">
+      <DependentUpon>202001221431131_Cars5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001221514221_Date1.resx">
+      <DependentUpon>202001221514221_Date1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001221542073_Reservations1.resx">
+      <DependentUpon>202001221542073_Reservations1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001221901287_Expiration1.resx">
+      <DependentUpon>202001221901287_Expiration1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001221924522_NameSpaces1.resx">
+      <DependentUpon>202001221924522_NameSpaces1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

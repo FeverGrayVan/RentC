@@ -156,8 +156,7 @@ namespace RentC.WebUI.Controllers
                 {
                     Client client = new Client() {
                         Email = model.Email,
-                        ClientFirstName = model.ClientFirstName,
-                        ClientLastName = model.ClientLastName,
+                        ClientName = model.ClientName,
                         BirthDate = model.BirthDate,
                         ZipCode = model.ZipCode,
 

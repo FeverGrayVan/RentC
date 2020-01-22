@@ -81,9 +81,7 @@ namespace RentC.WebUI.Models
         public string ConfirmPassword { get; set; }
 
         [Required]
-        public string ClientFirstName { get; set; }
-        [Required]
-        public string ClientLastName { get; set; }
+        public string ClientName { get; set; }
         [Required]
         public string BirthDate { get; set; }
         public int ZipCode { get; set; }

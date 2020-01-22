@@ -32,7 +32,7 @@ namespace RentC.DataAccess.SQL
         public void Delete(string Id)
         {
             var t = Find(Id);
-            if (context.Entry(t).State == EntityState.Detached)
+            if (context.Entry(t).State != EntityState.Detached)
             {
                 dbSet.Attach(t);
 
