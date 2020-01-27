@@ -38,7 +38,11 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+ {
+    
+    //if(item.CustomerID == User.Identity.Name) 
+    //{
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.CreatedAt)
@@ -65,10 +69,11 @@
             @Html.DisplayFor(modelItem => item.CouponCode)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
         </td>
     </tr>
-}
+    //}
+ }
 
 </table>

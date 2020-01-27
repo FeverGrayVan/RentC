@@ -9,6 +9,9 @@ using System.Web.Mvc;
 
 namespace RentC.WebUI.Controllers
 {
+
+    //[Authorize(Roles = "Admin")]
+    [Authorize]
     public class ReservationController : Controller
     {
         IRepository<Reservation> context;
@@ -25,6 +28,17 @@ namespace RentC.WebUI.Controllers
         // GET: ProductManager
         public ActionResult Index()
         {
+            string userName = System.Web.HttpContext.Current.User.Identity.Name;
+            string tempUser = null;
+            List<Reservation> tempReserv = new List<Reservation>();
+
+            foreach (Client item in clients.Collection().ToList()) 
+            {
+                if (item.Email == userName) 
+                {
+                    tempUser = item.ClientName;
+                }
+            }
             //List<Reservation> reservations = context.Collection().ToList();
             foreach (Reservation item in context.Collection().ToList())
             {
@@ -35,8 +49,16 @@ namespace RentC.WebUI.Controllers
                 else {
                     item.ReservStatsID = "Active";
                 }
+
+                if (item.CustomerID == tempUser) 
+                {
+                    tempReserv.Add(item);
+                }
             }
-            return View(context.Collection().ToList());
+
+            
+            return View(tempReserv);
+            //return View(context.Collection().ToList());
         }
 
         //public ActionResult Create()

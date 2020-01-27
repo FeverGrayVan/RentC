@@ -1,5 +1,6 @@
 using RentC.Core.Contracts;
 using RentC.Core.Models;
+using RentC.Core.ViewModels;
 using RentC.DataAccess.InMemory;
 using RentC.DataAccess.SQL;
 using System;

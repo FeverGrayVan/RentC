@@ -1,4 +1,5 @@
 ﻿using RentC.Core.Models;
+using RentC.Core.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
